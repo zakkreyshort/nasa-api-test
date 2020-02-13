@@ -37,9 +37,14 @@ $(document).ready(function() {
     const answer = await mars.getWeather();
     getWeatherElements(answer);
   })();
-  function getWeatherElements(mars) {
-    let marsW = mars[425].AT.av;
-    marsW.toString();
-    $("#day1Weather").text(marsW);
+  function getWeatherElements(answer) {
+    console.log(answer);
+    if(answer) {
+      let marsW = answer[425].AT.av;
+      console.log(marsW)
+      $("#day1Weather").text(marsW)
+    } else {
+      $("#day1Weather").text(`Error in handling request.`);
+    }
   }
 });

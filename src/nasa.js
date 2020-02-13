@@ -12,5 +12,5 @@ export class Nasa {
     } catch(error) {
       return false;
     }
-  };
+  }
 }
