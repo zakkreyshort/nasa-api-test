@@ -11,5 +11,9 @@ $(document).ready(function() {
       const response = await nasa.getImage();
       getElements(response);
     })();
+    // shows a single picture in index 0, need to cycle through all of them
+    function getElements(nasa) {
+      $("#nasaImage").attr("src", nasa.photos[30].img_src);
+    }
   });
 });
