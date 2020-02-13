@@ -12,7 +12,6 @@ $(document).ready(function() {
     (async () => {
       let nasa = new Nasa();
       const response = await nasa.getImage();
-      console.log(response);
       getElements(response);
     })();
     let rng = Math.floor(Math.random() * 1000) + 1;
@@ -38,11 +37,9 @@ $(document).ready(function() {
     getWeatherElements(answer);
   })();
   function getWeatherElements(answer) {
-    console.log(answer);
     if(answer) {
       let marsW = answer[425].AT.av;
-      console.log(marsW)
-      $("#day1Weather").text(marsW)
+      $("#day1Weather").text(marsW);
     } else {
       $("#day1Weather").text(`Error in handling request.`);
     }
