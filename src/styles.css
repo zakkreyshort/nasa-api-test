@@ -6,6 +6,7 @@ body {
   border: solid 2px black;
   color: whitesmoke;
   margin-bottom: 25px;
+  text-shadow: 2px 1px #111111
 }
 #nasaImage {
   height: 250px;

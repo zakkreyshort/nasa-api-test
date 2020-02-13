@@ -3,6 +3,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { Nasa } from "./nasa";
+import { Mars } from "./mars-weather";
 
 
 $(document).ready(function() {
@@ -21,4 +22,16 @@ $(document).ready(function() {
         $("#output").show();
     }
   });
+  (async () => {
+    let mars = new Mars();
+    const answer = await mars.getWeather();
+    getElements(answer);
+  })();
+  function getElements(mars) {
+    console.log(mars);
+    console.log(Object.keys(mars));
+    let marsW = mars[425].AT.av;
+    marsW.toString();
+    $("#day1Weather").text(marsW);
+  }
 });
