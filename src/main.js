@@ -8,28 +8,36 @@ import { Mars } from "./mars-weather";
 
 $(document).ready(function() {
   $("#clickable").click(function() {
+
     (async () => {
       let nasa = new Nasa();
       const response = await nasa.getImage();
+      console.log(response);
       getElements(response);
     })();
     let rng = Math.floor(Math.random() * 1000) + 1;
-    function getElements(nasa) {
-        $("#nasaImage").attr("src", nasa.photos[rng].img_src);
-        $("#roverName").text(nasa.photos[rng].rover.name);
-        $("#earthDate").text(nasa.photos[rng].earth_date);
-        $("#cameraOut").text(nasa.photos[rng].camera.name);
+    function getElements(response) {
+      if(response){
+        $("#nasaImage").attr("src", response.photos[rng].img_src);
+        $("#roverName").text(response.photos[rng].rover.name);
+        $("#earthDate").text(response.photos[rng].earth_date);
+        $("#cameraOut").text(response.photos[rng].camera.name);
         $("#output").show();
+      } else {
+        $("#nasaImage").text(`Error in handling request.`);
+        $("#roverName").text(`Error in handling request.`);
+        $("#earthDate").text(`Error in handling request.`);
+        $("#cameraOut").text(`Error in handling request.`);
+        $("#output").show();
+      }
     }
   });
   (async () => {
     let mars = new Mars();
     const answer = await mars.getWeather();
-    getElements(answer);
+    getWeatherElements(answer);
   })();
-  function getElements(mars) {
-    console.log(mars);
-    console.log(Object.keys(mars));
+  function getWeatherElements(mars) {
     let marsW = mars[425].AT.av;
     marsW.toString();
     $("#day1Weather").text(marsW);
