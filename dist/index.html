@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Random Mars Photo</title>
 </head>
+
 <body>
-<div>
-  <p><span id="issHeader"></span></p>
-</div>
-
-
-  <h1>Mars Rover Photo</h1>
-  <button id="clickable">click here!</button>
-  <p><img id="nasaImage" src="#" alt=""></p>
-  <h3>Rover Name:</h3>
-  <p> <span id="roverName"></span></p>
-  <h3>Date of Picture:</h3>
-  <p> <span id="earthDate"></span></p>
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>Curiosity Photo Generator</h1>
+    </div>
+    <div class="text-center"id="intro">
+      <p>Ever wanted to check out some photos from mars and learn more about when they were taken, and what camera took
+        the
+        photo etc.?</p>
+      <p>click the button below to generate a photo and learn a little more about it</p>
+      <button id="clickable">click here!</button>
+    </div>
+    <div id="output">
+      <div class="card text-center">
+        <div class="card-header">
+          Here is your photo!
+        </div>
+        <div class="card-body">
+          <div id="image">
+              <p><img id="nasaImage" src="#" alt=""></p>
+          </div>
+          <p class="card-text">This photo from <span id="roverName"></span> was taken on <span id="earthDate"></span>
+            using it's <span id="cameraOut"></span> camera</p>
+        </div>
+      </div>
+      <!-- <p><img id="nasaImage" src="#" alt=""></p>
+      <h3>Rover Name:</h3>
+      <p> <span id="roverName"></span></p>
+      <h3>Date of Picture:</h3>
+      <p> <span id="earthDate"></span></p>
+      <h3>Camera:</h3>
+      <p> <span id="cameraOut"></span></p> -->
+    </div>
+  </div>
 <script type="text/javascript" src="bundle.js"></script></body>
+
 </html>
